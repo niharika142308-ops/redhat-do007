@@ -28,7 +28,7 @@
         state: touch
       notify: Say file was touched 
     
-    -  name: Update MOTD from jinja template
+    - name: Update MOTD from jinja template
       ansible.builtin.template:
         src: templates/motd.j2
         dest: /etc/motd
