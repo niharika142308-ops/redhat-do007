@@ -13,7 +13,7 @@
     - name: Print a welcome message
       ansible.builtin.debug:
         msg: "{{ welcome_message }}"
-      when: ansible_facts['os_family'] == 'Debian'
+      when: ansible_facts['os_family'] == 'RedHat'
     
     - name: Task runs only if previous was successful
       ansible.builtin.debug:
