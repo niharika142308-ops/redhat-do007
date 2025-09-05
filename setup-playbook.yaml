@@ -7,7 +7,15 @@
       ansible.builtin.copy:
         dest: ~/hello.txt
         content: "{{ copy_content }}"
+      register: hello_result
+      when: ansible_facts['os_family'] == 'RedHat'
    
     - name: Print a welcome message
       ansible.builtin.debug:
         msg: "{{ welcome_message }}"
+      when: ansible_facts['os_family'] == 'Debian'
+    
+    - name: Task runs only if previous was successful
+      ansible.builtin.debug:
+        msg: "The previous task was succesfull"
+        when: hello_result.changed
