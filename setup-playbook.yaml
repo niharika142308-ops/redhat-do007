@@ -2,12 +2,15 @@
 - name: Basic System Setup
   hosts: all
   become: false
+  vars:
+    copy_content: "Hello from Ansible!"
+    welcome_message: "Welcome to Ansible Automation Platform!"
   tasks:
     - name: Create a hello.txt file in the user's home directory
       ansible.builtin.copy:
         dest: ~/hello.txt
-        content: "Hello from Ansible!"
+        content: "{{ copy_content }}"
    
     - name: Print a welcome message
       ansible.builtin.debug:
-        msg: "Welcome to Ansible Automation Platform!"
+        msg: "{{ welcome_message }}"
