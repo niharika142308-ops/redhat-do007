@@ -22,3 +22,12 @@
       loop:
         -  "The previous task was succesfull"
         - "Playbook executed on a Linux host"
+    - name: Create or update a file and notify handler
+      ansible.builtin.file:
+        path: ~/trigger.txt
+        state: touch
+      notify: Say file was touched 
+  handlers:
+    - name: Say file was touched
+      ansible.builtin.debug:
+        msg: "Handler was triggered because the file was changed."
