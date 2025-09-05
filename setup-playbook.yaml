@@ -1,8 +1,12 @@
 ---
 - name: Basic System Setup
   hosts: all
-  become: true
+  become: false
   tasks:
+    - name: Ensure sudo is installed
+      ansible.builtin.package:
+        name: sudo
+        state: present
     - name: Update all security-related packages
       ansible.builtin.package:
         name: '*'
