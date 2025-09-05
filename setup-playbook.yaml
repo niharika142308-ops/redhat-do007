@@ -7,11 +7,6 @@
       ansible.builtin.copy:
         dest: ~/hello.txt
         content: "Hello from Ansible!"
-    - name: Update all security-related packages
-      ansible.builtin.package:
-        name: '*'
-        state: latest
-        security: true
    
     - name: Create a new user
       ansible.builtin.user:
