@@ -17,5 +17,8 @@
     
     - name: Task runs only if previous was successful
       ansible.builtin.debug:
-        msg: "The previous task was succesfull"
+        msg: {{ item}}
       when: hello_result.changed
+      loop:
+        -  "The previous task was succesfull"
+        - "Playbook executed on a Linux host"
