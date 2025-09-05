@@ -8,8 +8,6 @@
         dest: ~/hello.txt
         content: "Hello from Ansible!"
    
-    - name: Create a new user
-      ansible.builtin.user:
-        name: "carol"
-        state: present
-        create_home: true
+    - name: Print a welcome message
+      ansible.builtin.debug:
+        msg: "Welcome to Ansible Automation Platform!"
