@@ -3,10 +3,10 @@
   hosts: all
   become: false
   tasks:
-    - name: Ensure sudo is installed
-      ansible.builtin.package:
-        name: sudo
-        state: present
+    - name: Create a hello.txt file in the user's home directory
+      ansible.builtin.copy:
+        dest: ~/hello.txt
+        content: "Hello from Ansible!"
     - name: Update all security-related packages
       ansible.builtin.package:
         name: '*'
