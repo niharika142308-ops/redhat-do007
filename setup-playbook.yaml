@@ -18,4 +18,4 @@
     - name: Task runs only if previous was successful
       ansible.builtin.debug:
         msg: "The previous task was succesfull"
-        when: hello_result.changed
+      when: hello_result.changed
